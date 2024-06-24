@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#31363F"
+    android:orientation="vertical"
+    android:padding="30dp"
+    tools:context=".HomeActivity">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Welcome to Fitness App!"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#F8F8F8"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnStartWorkout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#2A272A"
+        android:letterSpacing="0.1"
+        android:padding="20dp"
+        android:text="Start Workout"
+        android:textColor="#19D3DA"
+        android:textSize="16sp"
+        app:cornerRadius="15dp" />
+
+    <Button
+        android:id="@+id/btnViewProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#2A272A"
+        android:letterSpacing="0.1"
+        android:padding="20dp"
+        android:text="View Progress"
+        android:textColor="#19D3DA"
+        android:textSize="16sp"
+        app:cornerRadius="15dp" />
+
+    <Button
+        android:id="@+id/btnSetGoals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#2A272A"
+        android:letterSpacing="0.1"
+        android:padding="20dp"
+        android:text="Set Goals"
+        android:textColor="#19D3DA"
+        android:textSize="16sp"
+        app:cornerRadius="15dp" />
+
+</LinearLayout>

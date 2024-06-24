@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "228922464912",
+    "project_id": "mphoneauth-bdc65",
+    "storage_bucket": "mphoneauth-bdc65.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228922464912:android:3b5ac4b58c581e28749615",
+        "android_client_info": {
+          "package_name": "cusat.ddukk.mphoneauth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJopBoms5iIQu3H2-mvXWminLdpxRXbCo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
