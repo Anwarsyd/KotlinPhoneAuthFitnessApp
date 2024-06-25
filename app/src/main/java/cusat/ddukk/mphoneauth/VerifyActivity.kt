@@ -18,12 +18,10 @@ class VerifyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verify)
-
         firebaseAuth = FirebaseAuth.getInstance()
 
-        // Retrieve verification ID passed from MainActivity
+        // Retrieve the stored verification ID from the intent
         val storedVerificationId = intent.getStringExtra("Stored_code")
-
         val verifyButton = findViewById<Button>(R.id.bt_verify)
 
         val otpFields = listOf<EditText>(
@@ -34,19 +32,14 @@ class VerifyActivity : AppCompatActivity() {
             findViewById(R.id.et_otp_5),
             findViewById(R.id.et_otp_6)
         )
-
         verifyButton.setOnClickListener {
-            // Extract OTP from EditText fields
             val otp = otpFields.joinToString(separator = "") { it.text.toString().trim() }
-
-            // Validate OTP input
             if (otp.length == 6) {
                 // Create PhoneAuthCredential object
                 val credential = PhoneAuthProvider.getCredential(storedVerificationId!!, otp)
-                // Perform signIn operation
+                // Perform sign-in operation
                 signInWithPhoneAuthCredential(credential)
             } else {
-                // Show error message if OTP is invalid
                 Toast.makeText(this, "Enter valid OTP", Toast.LENGTH_SHORT).show()
             }
         }
@@ -54,18 +47,16 @@ class VerifyActivity : AppCompatActivity() {
 
     // Function to sign in with PhoneAuthCredential
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
+        // Sign in with the credential using FirebaseAuth
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     val user = firebaseAuth.currentUser
                     Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT).show()
-                    // Proceed to HomeActivity or any other desired activity
                     val intent = Intent(applicationContext, HomeActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
-                    // Sign in failed, display a message to the user.
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         Toast.makeText(this, "Invalid OTP, please try again", Toast.LENGTH_SHORT).show()
                     } else {
